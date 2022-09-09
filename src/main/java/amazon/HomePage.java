@@ -1,3 +1,5 @@
+package amazon;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,15 +20,17 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-    public void acceptCookie () {
+    public HomePage acceptCookie () {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         WebElement buttonCookie = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-cel-widget=sp-cc-accept]")));
         buttonCookie.click();
+        return this;
     }
 
-        public void SearchWithButton () {
+        public HomePage SearchWithButton () {
             WebElement searchBar = driver.findElement(By.cssSelector("[aria-label=Rechercher]"));
             searchBar.sendKeys(searchKeyword);
+            return this;
 
         }
         public SearchResultPage loupeButton () {

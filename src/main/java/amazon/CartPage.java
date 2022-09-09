@@ -1,3 +1,5 @@
+package amazon;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,10 +29,11 @@ public class CartPage {
             this.driver= driver;
 
       }
-     public void selectQuantity(int quantity) {
+     public CartPage selectQuantity(int quantity) {
            WebElement dropdown = driver.findElement(By.cssSelector("#quantity"));
            Select quantiteDropdown = new Select(dropdown);
            quantiteDropdown.selectByIndex(quantity);
+           return this;
      }
      public String getFirstProductName() {
           WebElement informations = driver.findElement(By.cssSelector("a-truncate-cut"));

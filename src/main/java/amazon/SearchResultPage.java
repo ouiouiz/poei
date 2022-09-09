@@ -1,3 +1,5 @@
+package amazon;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +17,10 @@ public class SearchResultPage {
         this.driver= driver;
 
     }
-    public void openSearchResult(int index) {
+    public ProductPage openSearchResult(int index) {
     List<WebElement> resultatList = driver.findElements(By.cssSelector("img.s-image"));
-            resultatList.get(0).click();
+            resultatList.get(index).click();
+            return new ProductPage(driver);
 
 
    }

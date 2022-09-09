@@ -1,3 +1,5 @@
+package amazon;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,22 +27,25 @@ public class ProductPage {
     }
 
 
-    public void addToCart() {
+    public ProductPage addToCart() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeoutsCart));
         WebElement ajouterAuPanierButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[aria-labelledby='submit.add-to-cart-announce']")));
         ajouterAuPanierButton.click();
+        return this;
     }
-   public void refuseAppleCare () {
+   public ProductPage refuseAppleCare () {
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeoutAppleCare));
        WebElement nonmerci = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[aria-labelledby='attachSiNoCoverage-announce']")));
        nonmerci.click();
+       return this;
    }
 
 
-    public void openCart() {
+    public  CartPage openCart() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeoutopenCart));
        WebElement panierButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#attach-sidesheet-view-cart-button")));
        panierButton.click();
+       return new CartPage(driver);
 
 
     }
