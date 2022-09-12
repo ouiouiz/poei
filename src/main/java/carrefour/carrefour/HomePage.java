@@ -1,5 +1,6 @@
-package carrefour;
+package carrefour.carrefour;
 
+import carrefour.ShoppingPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,7 @@ public class HomePage {
         cookieButton.click();
         return this;
     }
-    public ShoppingPage  openMaisonLoisir() {
+    public ShoppingPage openMaisonLoisir() {
         WebElement afficherloisirs = driver.findElement(By.cssSelector("#data-top-bar"));
         afficherloisirs.click();
         return new ShoppingPage(driver);

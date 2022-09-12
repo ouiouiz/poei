@@ -1,5 +1,3 @@
-package carrefour;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -76,7 +74,7 @@ public class TpCarrefour {
 */
 
 
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
 
         WebElement ajouterPanier = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#mainDetailNonFoodPdpButtonContainer"))) ;
 
