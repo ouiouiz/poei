@@ -1,6 +1,5 @@
 package carrefour.carrefour;
 
-import carrefour.BestSellerPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,16 +13,17 @@ public class ShoppingPage {
     WebDriver driver;
 
     String info = "Sports, Loisirs et Mobilité urbaine";
-    private int TimeoutsRayon= 5;
+    private int TimeoutsRayon = 5;
     private By openRayons = By.cssSelector("span.mainbar__nav-toggle-icon");
+    private By allerRayonSport = By.cssSelector("#data-menu-level-0 > li:nth-child(5) > a");
+    private By meilleuresVentes= By.cssSelector("#data-menu-level-1_R26 > li:nth-child(3) > a");
 
-    public ShoppingPage (WebDriver driver) {
-        this.driver= driver;
+    public ShoppingPage(WebDriver driver) {
+        this.driver = driver;
     }
 
 
-
-    public ShoppingPage openRayons  {
+    public ShoppingPage openRayons() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeoutsRayon));
 
 
@@ -31,47 +31,28 @@ public class ShoppingPage {
         rayons.click();
         return this;
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
-    public void allerRayonSport () {
+    public ShoppingPage allerRayonSport() {
         WebElement sportLoisirs = driver.findElement(By.cssSelector("#data-menu-level-0 > li:nth-child(5) > a"));
         Actions actions = new Actions(driver);
         actions.moveToElement(sportLoisirs);
         actions.perform();
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+        return this;
     }
-    public BestSellerPage meilleursVentes() {
-        WebElement meilleuresVentes = driver.findElement(By.cssSelector("#data-menu-level-1_R26 > li:nth-child(3) > a"));
+
+
+
+
+    public ShoppingPage meilleuresVentes () {
+        WebElement affichermeilleuresVentes = driver.findElement(By.cssSelector("#data-menu-level-1_R26 > li:nth-child(3) > a"));
         Actions actions1 = new Actions(driver);
-        actions1.moveToElement(meilleuresVentes);
+        actions1.moveToElement(affichermeilleuresVentes);
         actions1.perform();
+        return this;
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        public BestSellerPage meilleuresvente () {
-        WebElement meilleuresVente = driver.findElement(By.cssSelector("#data-menu-level-1_R26 > li:nth-child(3) > a"));
-        meilleuresVente.click();
-        return new BestSellerPage(driver);
     }
-
-
-
-
 
 
 

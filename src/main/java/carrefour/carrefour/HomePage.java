@@ -1,6 +1,5 @@
 package carrefour.carrefour;
 
-import carrefour.ShoppingPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +16,7 @@ public class HomePage {
         this.driver = driver;
 
     }
-    public carrefour.HomePage toutAccepter () {
+    public HomePage toutAccepter () {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement cookieButton = wait.until( ExpectedConditions.elementToBeClickable(By.cssSelector("div.banner-actions-container")));

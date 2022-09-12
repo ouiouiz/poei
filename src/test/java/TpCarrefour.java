@@ -1,3 +1,4 @@
+import carrefour.carrefour.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,6 +44,12 @@ public class TpCarrefour {
 
     @Test
     public void test() {
+        HomePage homePage = new HomePage(driver);
+        homePage.toutAccepter()
+                .openMaisonLoisir()
+                .openRayons()
+                .allerRayonSport()
+                .meilleuresVentes();
 
         // Act
 
@@ -72,7 +79,7 @@ public class TpCarrefour {
                 throw new RuntimeException(e);
             }
 */
-
+/*
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
 
