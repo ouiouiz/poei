@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
-public class Ouiza {
+public class OuizaTest {
     WebDriver driver;
 
     @BeforeMethod

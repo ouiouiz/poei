@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Tp3 {
+public class Tp3Test {
     @Test
     public void testCSS() {
         WebDriver driver = new ChromeDriver();

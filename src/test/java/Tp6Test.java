@@ -12,7 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-    public class Tp6 {
+    public class Tp6Test {
 
         WebDriver driver;
 
