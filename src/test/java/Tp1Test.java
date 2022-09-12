@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class Tp1Test {
+public class Tp1Test { //new test
 
 
     @Test //Annotation
@@ -15,12 +15,6 @@ public class Tp1Test {
         driver.get("https://www.google.fr/");
         driver.manage().window().maximize();
 
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         driver.quit();
     }
     @Test
