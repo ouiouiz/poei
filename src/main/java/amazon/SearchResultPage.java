@@ -8,20 +8,18 @@ import java.util.List;
 
 public class SearchResultPage {
 
-    private WebDriver driver;
-    private By openSearchResult = By.cssSelector("img.s-image");
-    private int index = 0;
+    WebDriver driver;
 
+    By firstSearchResultSelector = By.cssSelector("img.s-image");
 
-    public SearchResultPage (WebDriver driver) {
-        this.driver= driver;
-
+    public SearchResultPage(WebDriver driver){
+        this.driver = driver;
     }
-    public ProductPage openSearchResult(int index) {
-    List<WebElement> resultatList = driver.findElements(By.cssSelector("img.s-image"));
-            resultatList.get(index).click();
-            return new ProductPage(driver);
 
+    public ProductPage OpenSearchResult(int index) {
+        List<WebElement> listResults = driver.findElements(firstSearchResultSelector);
+        listResults.get(index).click();
 
-   }
+        return new ProductPage(driver);
+    }
 }

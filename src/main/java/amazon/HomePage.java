@@ -10,36 +10,29 @@ import java.time.Duration;
 
 public class HomePage {
 
-    private WebDriver driver;
-    private By acceptCookieSelector =  By.cssSelector("[data-cel-widget=sp-cc-accept]");
-    private By SearchWithButton = By.cssSelector("[aria-label=Rechercher]");
-    private By loupeButton    =By.cssSelector("[type=submit]");
-    private final int TIMEOUT_COOKIE = 6;
-    private  String searchKeyword = "Apple iPhone 13 Pro Max (256 Go) - Vert Alpin";
+    WebDriver driver;
+    final int TIMEOUT_COOKIE = 6;
+    By acceptCookiesSelector = By.cssSelector(".a-button-input.celwidget");
+    By searchBarSelector = By.cssSelector("#twotabsearchtextbox");
+    By magnifierButton = By.cssSelector("#nav-search-submit-button");
 
-    public HomePage(WebDriver driver) {
+    public HomePage(WebDriver driver){
         this.driver = driver;
     }
-    public HomePage acceptCookie () {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
-        WebElement buttonCookie = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-cel-widget=sp-cc-accept]")));
-        buttonCookie.click();
+
+    public HomePage acceptCookies(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_COOKIE));
+        WebElement acceptButton = wait.until(ExpectedConditions.visibilityOfElementLocated(acceptCookiesSelector));
+        acceptButton.click();
         return this;
     }
 
-        public HomePage SearchWithButton () {
-            WebElement searchBar = driver.findElement(By.cssSelector("[aria-label=Rechercher]"));
-            searchBar.sendKeys(searchKeyword);
-            return this;
+    public SearchResultPage searchWithButton(String keyword){
+        WebElement searchBar = driver.findElement(searchBarSelector);
+        searchBar.sendKeys(keyword);
+        WebElement loupe = driver.findElement(magnifierButton);
+        loupe.click();
 
-        }
-        public SearchResultPage loupeButton () {
-            WebElement loupeButton = driver.findElement(By.cssSelector("[type=submit]"));
-            loupeButton.click();
-            return new SearchResultPage(driver);
-        }
-
-
-
-
+        return new SearchResultPage(driver);
+    }
 }
