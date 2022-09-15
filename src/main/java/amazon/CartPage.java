@@ -1,5 +1,8 @@
-package amazon;
+package main.java.amazon;
 
+import main.java.amazon.HomePage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,11 +20,18 @@ public class CartPage {
     By productSubtotalSelector = By.cssSelector("li.sc-product-variation>span>span");
     By buyboxSubTotalSelector = By.cssSelector("#sc-subtotal-label-buybox");
     By cartSubTot = By.cssSelector("#sc-subtotal-label-activecart");
+    private static final Logger capp = LogManager.getLogger(HomePage.class);
 
     public CartPage(WebDriver driver){
+
         this.driver = driver;
     }
 
+    /**
+     * Seletionner la quantité de produit
+     * @param quantity
+     * @return
+     */
     public CartPage selectQuantity(int quantity){
         Select quantitySelect = new Select(driver.findElement(quantitySelector));
         quantitySelect.selectByIndex(quantity);
@@ -34,6 +44,7 @@ public class CartPage {
     }
 
     public String getFirstProductName(){
+        capp.error("c'est pas le first name");
         WebElement productTitle = driver.findElement(productTitleSelector);
         return productTitle.getText();
     }

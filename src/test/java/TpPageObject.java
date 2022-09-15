@@ -1,26 +1,16 @@
-import amazon.CartPage;
-import amazon.HomePage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
+package test.java;
+
+import main.java.amazon.CartPage;
+import main.java.amazon.HomePage;
+
+import main.java.commun.SetupTeardowm;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+public class TpPageObject extends SetupTeardowm {
 
-public class TpPageObject {
 
-     WebDriver driver;
    // ChromeOptions options = new ChromeOptions();
     //FirefoxOptions options2 = new FirefoxOptions();
    // EdgeOptions options3 = new EdgeOptions();
@@ -38,20 +28,6 @@ public class TpPageObject {
     final String expectedCongig = "Sans AppleCare+";
 
 
-    @BeforeMethod
-    private void setup() throws MalformedURLException {
-        //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\src\\Resources\\chromedriver.exe");
-        //driver = new RemoteWebDriver(new URL("http://admin:admin@192.168.121.15:4449"), options);
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.amazon.fr");
-    }
-
-    @AfterMethod
-    private void teardown(){
-        driver.quit();
-    }
 
     @Test
     public void testPO() {
@@ -77,17 +53,5 @@ public class TpPageObject {
     }
 
 
-    @Test
-    public void testHover(){
-        
-        Actions actions = new Actions(driver);
-        WebElement elementToHover = driver.findElement(By.cssSelector("#nav-link-accountList"));
-        actions.moveToElement(elementToHover);
-        actions.perform();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 }
