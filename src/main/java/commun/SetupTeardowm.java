@@ -20,7 +20,7 @@ public class SetupTeardowm {
     public void setup() throws MalformedURLException {
         //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\src\\Resources\\chromedriver.exe");
         //driver = new RemoteWebDriver(new URL("http://admin:admin@192.168.121.15:4449"), options);
-
+      /*
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -36,7 +36,7 @@ public class SetupTeardowm {
                 break;
 
         }
-
+   */
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
