@@ -1,0 +1,11 @@
+{
+  "info" : {
+    "summary" : "Execution of automated tests Ouiza",
+    "description" : "This execution is automatically"
+  },
+  "tests" : [ {
+    "testKey" : "POEI22-672",
+    "comment" : "Successful execution",
+    "status" : "PASSED"
+  } ]
+}
