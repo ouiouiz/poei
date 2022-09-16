@@ -93,7 +93,7 @@ public class ImportResultsToXray {
             listTests.add(test);
     
             //Sin on souhaite preciser le ID du testExec
-           // myJson.put("testExecutionKey","POEI22-712");
+            myJson.put("testExecutionKey","POEI22-694");
             myJson.set("info",info);
             myJson.set("tests", listTests);
     
