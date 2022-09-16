@@ -1,5 +1,6 @@
 pipeline {
     agent any
+     triggers {cron{'0 12 * * 1-5'}}
 
     stages {
 
