@@ -14,7 +14,7 @@ public class HomePage {
 
     WebDriver driver;
     final int TIMEOUT_COOKIE = 6;
-    By acceptCookiesSelector = By.cssSelector(".a-button-input.celwidget");
+    By acceptCookiesSelector = By.cssSelector("\".a-button-input.celwidget\"");
    By searchBarSelector = By.cssSelector("#twotabsearchtextbox");
     //@FindBy(css = ".a-button-input.celwidget") private WebElement searchBarSelector;
     By magnifierButton = By.cssSelector("#nav-search-submit-button");

@@ -73,7 +73,7 @@ public class SetupTeardowm {
          //Take screenshots
             TakesScreenshot ts = (TakesScreenshot) driver;
             File source =  ts.getScreenshotAs(OutputType.FILE);
-            FileHandler.copy(source , new File( System.getProperty("user.dir")+"\\screenshots\\capture.png"));
+            FileHandler.copy(source , new File( System.getProperty("user.dir")+"\\screenshots\\"+result.getName()+".png"));
         }
         else if(result.getStatus() == ITestResult.SKIP ){
 
@@ -81,7 +81,7 @@ public class SetupTeardowm {
             res.generateJsonResults("SKIPED");
 
         }
-        res.RemonteResultats();
+       // res.RemonteResultats();
 
         driver.quit();
     }
